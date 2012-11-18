@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Administracion de Recursos</h2>
+
+<ul>
+    <li>@Html.ActionLink("Espectaculos", "Index", "Espectaculo")</li>
+    <li>@Html.ActionLink("Estadios y Localidades", "Index", "Lugar")</li>
+    <li>@Html.ActionLink("Artistas", "Index", "Artista")</li>
+</ul>
+
+<h2>Consultas</h2>
+
+<ul>
+    <li>@Html.ActionLink("Concurrencia de Espectaculos", "Concurrencia")</li>
+    <li>@Html.ActionLink("Recaudacion de Espectaculos", "RecaudacionPR")</li>
+    <li>@Html.ActionLink("Numero de espectaculos brindados por Artista", "EOfrecidos")</li>
+    <li>@Html.ActionLink("Ocupacion total de Espectaculos", "Ocupacion")</li>
+    <li>@Html.ActionLink("Recaudacion de los Artistas", "ARecaudacion")</li>
+</ul>

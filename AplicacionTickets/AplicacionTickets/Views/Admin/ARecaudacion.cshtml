@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AplicacionTickets.Models.aRecaudacion>
+
+@{
+    ViewBag.Title = "ARecaudacion";
+}
+
+<h2>@ViewBag.Mensaje</h2>
+
+
+        <ul id="submenu">
+            <li>@Html.ActionLink(" ( DESC ) ", "ARecaudacion", new { or = "0" })</li>  
+            <li>@Html.ActionLink(" ( ASC ) ", "ARecaudacion", new { or = "1"})</li>
+        </ul>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.a.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a.Genero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.a.Tipo)
+        </th>
+        <th>
+            Recaudacion
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.a.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a.Genero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.a.Tipo)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.rec)
+        </td>
+        <td>
+            @Html.ActionLink("Ver Mas", "Details", "Artista", new { id=item.a.ArtistaId }, null)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Volver", "Index", "Admin")
+</div>
+

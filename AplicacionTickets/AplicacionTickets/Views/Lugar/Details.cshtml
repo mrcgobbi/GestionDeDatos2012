@@ -1,0 +1,59 @@
+﻿@model AplicacionTickets.Models.Lugar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<fieldset>
+    <legend>@Html.DisplayFor(model => model.Nombre)</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ciudad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ciudad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Provincia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Provincia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CantFilas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CantFilas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AsientosFila)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AsientosFila)
+    </div>
+    
+    <p>Espectaculos</p>
+    <ul>
+    @foreach (var item in Model.Espectaculos)
+    {
+        <li>@Html.ActionLink("Titulo: " + item.Titulo + ", Artista: " + item.Artista.Nombre, "Details", "Espectaculo", new { id = item.EspectaculoId }, null)</li>
+    }    
+    </ul>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.LugarId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

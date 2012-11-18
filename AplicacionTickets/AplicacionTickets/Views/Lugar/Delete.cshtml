@@ -1,0 +1,54 @@
+﻿@model AplicacionTickets.Models.Lugar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>¿Esta seguro que desea eliminar este lugar?</h3>
+<fieldset>
+    <legend>@Html.DisplayFor(model => model.Nombre)</legend>
+
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Ciudad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Ciudad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Provincia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Provincia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CantFilas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CantFilas)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AsientosFila)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AsientosFila)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

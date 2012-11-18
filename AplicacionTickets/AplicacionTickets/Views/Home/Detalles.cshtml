@@ -1,0 +1,49 @@
+﻿@model AplicacionTickets.Models.Espectaculo
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+
+<fieldset>
+    <legend> @Html.DisplayFor(model => model.Titulo) </legend>
+
+    <img src="@Html.DisplayFor(model => model.EspectaculoImageUrl)" />
+
+    <div class="label">Artista</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artista.Nombre)
+    </div>
+    
+    <div class="label">Lugar</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lugar.Nombre)
+    </div>
+
+    <div class="label">Descripcion</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="label">Fecha</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaHora)
+    </div>
+
+    <div class="label">Tipo de Espectaculo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artista.Tipo)
+    </div>
+    <br />
+
+    <div class="label">Precios y Ubicacion</div>
+    @if (Model.CantGen>0)
+    {
+    <div class="display-label">General $@Html.DisplayFor(model => model.PrecioEGen) | @Html.ActionLink("Comprar", "Comprar",new {tipoEnt = "G", id = Model.EspectaculoId}) </div>
+    }
+    <div class="display-label">Numeradas $@Html.DisplayFor(model => model.PrecioENum) | @Html.ActionLink("Comprar", "Comprar",new {tipoEnt = "N", id = Model.EspectaculoId}) </div>
+    
+</fieldset>
+<p id="button">
+    @Html.ActionLink("Volver", "Index")
+</p>

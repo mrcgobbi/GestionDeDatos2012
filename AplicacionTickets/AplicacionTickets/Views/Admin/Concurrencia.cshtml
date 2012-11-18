@@ -1,0 +1,56 @@
+﻿@model IEnumerable<AplicacionTickets.Models.Espectaculo>
+
+@{
+    ViewBag.Title = "Concurrencia";
+}
+
+        <ul id="submenu">
+            <li>@Html.ActionLink(" ( DESC ) ", "Concurrencia", new { or = "0" })</li>  
+            <li>@Html.ActionLink(" ( ASC ) ", "Concurrencia", new { or = "1"})</li>
+        </ul>
+
+
+<h2>@ViewBag.Mensaje</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            Artista
+        </th>
+        <th>
+            Lugar
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artista.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lugar.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Entradas.Count)
+        </td>
+        <td>
+            @Html.ActionLink("Ver Mas", "Details", "Espectaculo", new { id=item.EspectaculoId }, null)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Volver", "Index", "Admin")
+</div>

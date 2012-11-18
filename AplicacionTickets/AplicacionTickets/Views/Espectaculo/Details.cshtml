@@ -1,0 +1,83 @@
+﻿@model AplicacionTickets.Models.Espectaculo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Titulo)</h2>
+
+<fieldset>
+
+    <img src="@Html.DisplayFor(model => model.EspectaculoImageUrl)" />
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Artista)
+    </div>
+    <div class="display-field">
+        @Html.ActionLink(Model.Artista.Nombre, "Details", "Artista", new { id = Model.ArtistaId }, null)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lugar)
+    </div>
+    <div class="display-field">
+        @Html.ActionLink(Model.Lugar.Nombre, "Details", "Lugar", new { id = Model.LugarId }, null)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaHora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaHora)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaLimite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaLimite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Estado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrecioEGen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrecioEGen)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrecioENum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrecioENum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CantGen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CantGen)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EspectaculoImageUrl)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.EspectaculoId }) |
+    @Html.ActionLink("Volver", "Index")
+</p>

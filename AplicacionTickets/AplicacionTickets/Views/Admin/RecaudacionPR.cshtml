@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AplicacionTickets.Models.eRecaudac>
+
+@{
+    ViewBag.Title = "RecaudacionPR";
+}
+
+<h2>@ViewBag.Mensaje</h2>
+
+        <ul id="submenu">
+            <li>@Html.ActionLink(" ( DESC POT) ", "RecaudacionPR", new { or = "0", tr = "1"})</li>  
+            <li>@Html.ActionLink(" ( ASC POT) ", "RecaudacionPR", new { or = "1", tr = "1"})</li>
+            <li>@Html.ActionLink(" ( DESC REAL) ", "RecaudacionPR", new { or = "0", tr = "0" })</li>  
+            <li>@Html.ActionLink(" ( ASC REAL) ", "RecaudacionPR", new { or = "1", tr = "0"})</li>
+        </ul>
+
+
+<table>
+    <tr>
+        <th>Titulo</th>
+        <th>Artista</th>
+        <th>Lugar</th>
+        <th>Rec. Real</th>
+        <th>Rec. Potencial</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+   <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.e.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.e.Artista.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.e.Lugar.Nombre)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.rReal)
+        </td>
+        <td>
+           $@Html.DisplayFor(modelItem => item.rPotencial)
+        </td>
+        <td>
+            @Html.ActionLink("Ver Mas", "Details", "Espectaculo", new { id=item.e.EspectaculoId }, null)
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Volver", "Index", "Admin")
+</div>

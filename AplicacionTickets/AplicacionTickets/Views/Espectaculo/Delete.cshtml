@@ -1,0 +1,88 @@
+﻿@model AplicacionTickets.Models.Espectaculo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Esta seguro que desea eliminar este espectaculo?</h3>
+<fieldset>
+    <legend>@Html.DisplayFor(model => model.Titulo)</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Artista)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Artista.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lugar)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lugar.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaHora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaHora)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FechaLimite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FechaLimite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Estado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Estado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrecioEGen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrecioEGen)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PrecioENum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrecioENum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CantGen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CantGen)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EspectaculoImageUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EspectaculoImageUrl)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Volver", "Index")
+    </p>
+}

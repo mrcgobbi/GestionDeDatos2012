@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AplicacionTickets.Models.Lugar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo Lugar", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantFilas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AsientosFila)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provincia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantFilas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AsientosFila)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.LugarId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.LugarId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.LugarId })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>@Html.ActionLink("Volver", "Index", "Admin")</div>

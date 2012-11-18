@@ -1,0 +1,65 @@
+﻿@model AplicacionTickets.Models.eCompra
+
+@{
+    ViewBag.Title = "Comprar";
+}
+
+<h2>Compra</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Compra de entrdas generales</legend>
+        
+        @Html.HiddenFor(model => model.eId)
+        @Html.HiddenFor(model => model.tipoEnt)
+        @Html.Hidden("username", User.Identity.Name)
+
+        
+@if (Model.tipoEnt == "G")
+{        
+        @Html.Hidden("fila", 0)   
+        @Html.Hidden("asiento", 0)
+
+        <div class="editor-label">Cantidad a comprar</div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cant)
+            @Html.ValidationMessageFor(model => model.cant)
+        </div>
+}
+
+@if (Model.tipoEnt == "N")
+{
+        @Html.Hidden("cant", 1)
+
+        <div class="editor-label">
+            Numero de Fila
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fila)
+            @Html.ValidationMessageFor(model => model.fila)
+        </div>
+
+        <div class="editor-label">
+            Numero de Asiento
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.asiento)
+            @Html.ValidationMessageFor(model => model.asiento)
+        </div>
+}
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
