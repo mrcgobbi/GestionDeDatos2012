@@ -27,9 +27,8 @@
             @Html.EditorFor(model => model.cant)
             @Html.ValidationMessageFor(model => model.cant)
         </div>
-}
-
-@if (Model.tipoEnt == "N")
+    
+} else if (Model.tipoEnt == "N")
 {
         @Html.Hidden("cant", 1)
 

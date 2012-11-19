@@ -129,7 +129,13 @@ namespace MvcTickets.Web.Controllers
                 }
                 else //si es una entrada numerada
                 {
-                    if (db.Entradas.Where(e => e.EspectaculoId == compra.eId && e.NumFila == compra.fila && e.NumAsiento == compra.asiento) == null)
+                    Entrada entrada = eOrig.Entradas.SingleOrDefault(e => e.NumFila == compra.fila && e.NumAsiento == compra.asiento);
+
+                    if (entrada != null)    // si la entrada ya existe, le muestro la misma view para que cargue otra, todavia no se implemento una validacion js en la misma vista para evitar este paso
+                    {
+                        return View(compra);
+                    }
+                    else // si la entrada esta disponible
                     {
                         db.Entradas.Add(
                         new Entrada
@@ -142,10 +148,10 @@ namespace MvcTickets.Web.Controllers
                             Precio = eOrig.PrecioENum,
                             UserName = compra.username
                         });
-                    }
-                    else return View(compra); //la entrada ya esta ocupada
-                }
 
+                        db.Entry(eOrig).State = EntityState.Modified;
+                    }
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
